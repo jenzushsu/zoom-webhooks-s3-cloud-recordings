@@ -28,7 +28,7 @@ const fetchQueue: JobQueue<QueueItem> = fastq.promise(async ({ downloadToken, fi
 /**
  * When a POST request is received by our web server, we want to ensure that the request is from Zoom and
  * validate ownership of the domain/server. Then, we can handle business logic - in this app, that means
- * mapping session recordings to queue items,  which will download the file(s) and upload them to AWS S3.
+ * mapping recordings to queue items,  which will download the file(s) and upload them to AWS S3.
  */
 app.post("/", (req: WebhookRequest, res: WebhookResponse) => {
   console.log("Received request body: ", JSON.stringify(req.body));
@@ -56,7 +56,7 @@ app.post("/", (req: WebhookRequest, res: WebhookResponse) => {
       return res.status(200).json({ plainToken: req.body.payload.plainToken, encryptedToken: hashForValidate });
     }
 
-    // Zoom is informing us that a session recording has finished, so we can queue it for download
+    // Zoom is informing us that a recording has finished, so we can queue it for download
     if (req.body.event === "recording.completed") {
       const queueItems = mapToQueueItems(req.body);
       console.log("Mapped recording items: ", JSON.stringify(queueItems));

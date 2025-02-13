@@ -22,7 +22,7 @@ export const getEnvironmentVariable = <T extends keyof NodeJS.ProcessEnv>(
 };
 
 /**
- * Take a `session.recording_completed` request body that Zoom sends over, and map it to an {@link Array} of
+ * Take a `recording_completed` request body that Zoom sends over, and map it to an {@link Array} of
  * {@link QueueItem}s that can be subsequently sent to Zoom to download the recording and uploaded to AWS S3.
  */
 export const mapToQueueItems = (requestBody: RecordingCompletedRequestBody): Array<QueueItem> => {
