@@ -15,6 +15,7 @@ Once the bucket has been created, fetch the virtual-hosted-style path of the buc
 ```
 https://zoom-webhooks-cloud-recording-uploads.s3.ap-southeast-1.amazonaws.com
 ```
+
 Make note of the bucket URL, as it will be used in the future when configuring the sample application.
 
 ### Setting up an IAM policy that defines access to your Cloud Recording S3 bucket
@@ -34,12 +35,8 @@ Under IAM > Policies > Create policy in the AWS console, create a new policy tha
     {
       "Sid": "UploadUserAllowPutObject",
       "Effect": "Allow",
-      "Action": [
-        "s3:PutObject"
-      ],
-      "Resource": [
-        "arn:aws:s3:::zoom-webhooks-cloud-recording-uploads/*"
-      ]
+      "Action": ["s3:PutObject"],
+      "Resource": ["arn:aws:s3:::zoom-webhooks-cloud-recording-uploads/*"]
     }
   ]
 }
@@ -54,30 +51,30 @@ Under IAM > Users > Create user in the AWS console, create a new user that has t
 In a terminal window (e.g., Git Bash for Windows or Terminal for Linux/Mac OS), clone this repository by executing the following command:
 
 ```bash
-$ git clone https://github.com/zoom/zoom-webhooks-s3-cloud-recordings-uploader.git
+$ git clone https://github.com/jenzushsu/zoom-webhooks-s3-cloud-recordings.git
 ```
 
 ## Setup & Configuration
 
 1. In a terminal window, `cd` into the cloned repository:
 
-    ```bash
-    $ cd zoom-webhooks-s3-cloud-recordings-uploader
-    ```
+   ```bash
+   $ cd zoom-webhooks-s3-cloud-recordings
+   ```
 
 2. Install all necessary dependencies with `npm`, `yarn`, or `pnpm`:
 
-    ```bash
-    $ npm install
-    ```
+   ```bash
+   $ npm install
+   ```
 
 3. Rename `.env.local` to `.env`, replacing all environment variables for use with the AWS S3 and [Zoom's Webhooks](https://developers.zoom.us/docs/api/webhooks/).
 
 4. Start the development server
 
-    ```bash
-    $ npm run dev
-    ```
+   ```bash
+   $ npm run dev
+   ```
 
 5. Once the server is up and running, Zoom requires all webhook endpoints are first validated before webhooks are sent. Refer to Zoom's [_Using Webhooks_](https://developers.zoom.us/docs/api/rest/webhook-reference/) guide for more information.
 
