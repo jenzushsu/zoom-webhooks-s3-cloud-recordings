@@ -1,0 +1,22 @@
+{
+    "extends": [
+        "@tsconfig/node-lts",
+        "@tsconfig/strictest"
+    ],
+    "compilerOptions": {
+        "module": "esnext",
+        "moduleResolution": "node",
+        "outDir": "dist",
+        "removeComments": true,
+        "rootDir": "src",
+        "resolveJsonModule": true,
+        "strictNullChecks": true,
+    },
+    "exclude": [
+        "node_modules"
+    ],
+    "include": [
+        "./@types/**/*.d.ts",
+        "./src/**/*.ts",
+    ]
+}
