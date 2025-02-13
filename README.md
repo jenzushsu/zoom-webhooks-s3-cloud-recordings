@@ -76,7 +76,7 @@ $ git clone https://github.com/jenzushsu/zoom-webhooks-s3-cloud-recordings.git
    $ npm run dev
    ```
 
-5. Once the server is up and running, Zoom requires all webhook endpoints are first validated before webhooks are sent. Refer to Zoom's [_Using Webhooks_](https://developers.zoom.us/docs/api/rest/webhook-reference/) guide for more information.
+5. Once the server is up and running, Zoom requires all webhook endpoints are first validated before webhooks are sent. Refer to Zoom's [_Using Webhooks_](https://developers.zoom.us/docs/api/rest/webhook-reference/) guide for more information. For local testing, [ngrok](https://ngrok.com/) or any reverse SSH tunneling can be used for exposing a public endpoint for webhook validation process.
 
 > [NOTE]
 > The only required webhook event for this application is [**Meetings > Recording completed**](https://developers.zoom.us/docs/api/meetings/events/#tag/recording/POSTrecording.completed). All others events that are sent to this application will return `200 OK`, but will not be processed.
